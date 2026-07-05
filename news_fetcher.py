@@ -1,10 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from config import COMPANY_NAME
+import config
 
 def fetch_news():
+    COMPANY_NAME = config.COMPANY_NAME
     print(f"Fetching news for {COMPANY_NAME}...")
-    
     url = f"https://news.google.com/search?q={COMPANY_NAME}+stock+market&hl=en-IN&gl=IN&ceid=IN:en"
     
     headers = {
@@ -34,3 +34,4 @@ if __name__ == "__main__":
     news = fetch_news()
     for i, headline in enumerate(news, 1):
         print(f"{i}. {headline}")
+        
